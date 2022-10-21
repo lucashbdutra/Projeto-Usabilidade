@@ -1,7 +1,7 @@
 <div class="corpo">
   <div>
     <form class="d-flex" role="search">
-        <input id="input-buscar-clientes" class="form-control me-2" type="search" placeholder="Digite o nome do cliente"
+        <input id="input-buscar-clientes" class="form-control me-2" type="search" placeholder="Digite o nome do funcionário"
             aria-label="Search">
         <button id="botao-buscar-clientes" class="btn btn-outline-success" type="submit">Pesquisar</button>
     </form>
@@ -17,28 +17,30 @@
                 <th scope="col">Contato</th>
                 <th scope="col">Email</th>
                 <th scope="col">Endereço</th>
+                <th scope="col">Salário</th>
                 <th scope="col">
-                  <a class="add-button" routerLink="/clientes/cadastro">
+                  <a class="add-button" routerLink="/funcionarios/cadastro">
                     <mat-icon>add</mat-icon>
                   </a>
                 </th>
             </tr>
         </thead>
         <tbody class="fields">
-            <tr *ngFor="let cliente of clientes">
-                <td class="id-cliente">{{cliente.id}}</td>
-                <td>{{cliente.nome}}</td>
-                <td>{{cliente.cpf}}</td>
-                <td>{{cliente.contato}}</td>
-                <td>{{cliente.email}}</td>
-                <td>{{cliente.endereco}}</td>
+            <tr *ngFor="let funcionario of funcionarios">
+                <td class="id-cliente">{{funcionario.id}}</td>
+                <td>{{funcionario.nome}}</td>
+                <td>{{funcionario.cpf}}</td>
+                <td>{{funcionario.contato}}</td>
+                <td>{{funcionario.email}}</td>
+                <td>{{funcionario.endereco}}</td>
+                <td>{{funcionario.salario}}</td>
                 <td>
                     <div>
                         <a class="edit">
-                          <mat-icon routerLink="/clientes/editar/{{cliente.id}}">edit</mat-icon>
+                          <mat-icon routerLink="/funcionarios/editar/{{funcionario.id}}">edit</mat-icon>
                         </a>
                         <a class="delete">
-                          <mat-icon (click)="onExcluir(cliente.id)" color="">delete</mat-icon>
+                          <mat-icon (click)="onExcluir(funcionario.id)" color="">delete</mat-icon>
                         </a>
                     </div>
                 </td>
@@ -48,3 +50,9 @@
   </div>
 </div>
 
+<!-- <pagination-controls
+      (pageChange)="p = $event"
+      previousLabel="Anterior"
+      nextLabel="Próximo"
+      *ngIf="clientes.length > 0"
+    ></pagination-controls> -->

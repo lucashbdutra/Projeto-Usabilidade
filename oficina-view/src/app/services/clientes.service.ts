@@ -24,4 +24,17 @@ export class ClientesService {
   deletar(id: number){
     return this.http.delete(`${this.api}/${this.endpoint}/${id}`, this.loginService.getOptions());
   }
+
+  salvar(cliente: Partial<Cliente>){
+    return this.http.post<Cliente>(`${this.api}/${this.endpoint}/`, cliente, this.loginService.getOptions());
+  }
+
+  editar(id: number, cliente: Partial<Cliente>){
+    return this.http.put(`${this.api}/${this.endpoint}/${id}`, cliente, this.loginService.getOptions());
+  }
+
+  buscaPorId(id: number){
+    return this.http.get<Cliente>(`${this.api}/${this.endpoint}/${id}`);
+  }
+
 }

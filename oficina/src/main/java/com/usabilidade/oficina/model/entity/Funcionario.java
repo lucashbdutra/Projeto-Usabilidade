@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -21,6 +22,7 @@ public class Funcionario extends GenericEntity<Long>{
     private String contato;
     private String email;
     private String endereco;
+    private BigDecimal salario;
 
 
 }

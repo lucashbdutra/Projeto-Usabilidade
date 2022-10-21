@@ -1,3 +1,6 @@
+import { ProdutosComponent } from './pages/produto/produtos/produtos.component';
+import { CadastroFuncionarioComponent } from './pages/funcionario/cadastro-funcionario/cadastro-funcionario.component';
+import { FuncionariosComponent } from './pages/funcionario/funcionarios/funcionarios.component';
 import { CadastroClienteComponent } from './pages/cliente/cadastro/cadastro.component';
 import { ClientesComponent } from './pages/cliente/clientes/clientes.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,6 +24,8 @@ const routes: Routes = [
   {
     path: 'home', canActivate:[GuardService], component: HomeComponent
   },
+
+
   {
     path: 'clientes', canActivate:[GuardService], component: ClientesComponent
   },
@@ -29,6 +34,28 @@ const routes: Routes = [
   },
   {
     path: 'clientes/editar/:id', canActivate:[GuardService], component: CadastroClienteComponent
+  },
+
+
+  {
+    path: 'funcionarios', canActivate:[GuardService], component: FuncionariosComponent
+  },
+  {
+    path: 'funcionarios/cadastro', canActivate:[GuardService], component: CadastroFuncionarioComponent
+  },
+  {
+    path: 'funcionarios/editar/:id', canActivate:[GuardService], component: CadastroFuncionarioComponent
+  },
+
+
+  {
+    path: 'produtos', canActivate:[GuardService], component: ProdutosComponent
+  },
+  {
+    path: 'funcionarios/cadastro', canActivate:[GuardService], component: CadastroFuncionarioComponent
+  },
+  {
+    path: 'funcionarios/editar/:id', canActivate:[GuardService], component: CadastroFuncionarioComponent
   }
 ];
 

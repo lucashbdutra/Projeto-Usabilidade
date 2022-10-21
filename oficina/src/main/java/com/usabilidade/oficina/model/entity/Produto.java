@@ -18,13 +18,9 @@ public class Produto extends GenericEntity<Long>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
     private String nome;
-    @NotBlank
     private Integer quantidade;
-    @NotBlank
     private BigDecimal valorCusto;
-    @NotBlank
     private BigDecimal valorFinal;
 
 }

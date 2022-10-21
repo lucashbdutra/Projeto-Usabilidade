@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/interfaces/cliente';
 import { ClientesService } from 'src/app/services/clientes.service';
 
@@ -13,7 +14,9 @@ export class ClientesComponent implements OnInit {
   clientes?: Cliente[];
 
   constructor(
-    private clienteService: ClientesService
+    private clienteService: ClientesService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
