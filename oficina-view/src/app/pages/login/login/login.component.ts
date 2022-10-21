@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -12,19 +13,27 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit {
 
+  cadastro:boolean = false;
+
   constructor(
     private formBuilder: NonNullableFormBuilder,
     private loginService: LoginService,
-    private toaster: ToastrService
-  ) { }
+    private toaster: ToastrService,
+    private router: Router
+  ) {
+
+    localStorage.removeItem('username');
+  }
 
   ngOnInit(): void {
+
   }
 
   form = this.formBuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required]
   })
+
 
   onLogin(){
     const login = this.form.value as Login;
@@ -38,6 +47,8 @@ export class LoginComponent implements OnInit {
           this.toaster.success(ALERT_MESSAGE.SUCCESS_SIGNIN, '', {
             timeOut: 2000,
           });
+          this.router.navigate(['home']);
+
         }
       }, (error) => {
         this.toaster.error(ALERT_MESSAGE.ERROR_SIGNIN, '', {
@@ -50,7 +61,14 @@ export class LoginComponent implements OnInit {
         timeOut: 2000,
       });
     }
+  }
 
+  onAuthenticated(){
+    return this.loginService.isAuthenticated();
+  }
+
+  onCadastro(){
+    this.cadastro = !this.cadastro;
   }
 
 }

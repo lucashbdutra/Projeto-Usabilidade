@@ -26,23 +26,22 @@ export class LoginService {
   };
 
   setData(login: Partial<Login>){
-
-    if(!this.localStorage.get('username')){
-      this.localStorage.set('username', String(login.username));
-      this.localStorage.set('password', String(login.password));
-    }
+    this.localStorage.set('username', String(login.username));
+    this.localStorage.set('password', String(login.password));
 
     this.username = this.localStorage.get('username');
     this.password = this.localStorage.get('password');
 
+  }
+
+  getOptions(){
     this.authorizationData = 'Basic ' + btoa(this.localStorage.get('username') + ':' + this.localStorage.get('password'));
-    this.httpOptions = {
+    return this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': this.authorizationData
       })
     };
-
   }
 
   authenticate(login: Partial<Login>){
@@ -56,4 +55,10 @@ export class LoginService {
   logOut(){
     this.localStorage.clear();
   }
+
+  isAuthenticated(){
+    let userPresent = this.localStorage.get('username');
+    return userPresent ? true: false;
+  }
+
 }

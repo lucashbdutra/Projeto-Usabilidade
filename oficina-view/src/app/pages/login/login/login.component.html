@@ -1,40 +1,47 @@
-<div id="login">
-  <div class="container">
-    <div class="forms">
-      <div class="form login">
-        <span class="title">Entrar</span>
+<ng-container *ngIf="!cadastro">
+  <div id="login">
+    <div class="container">
+      <div class="forms">
+          <div class="form login">
+              <span class="title">Entrar</span>
 
-        <form action="#">
-            <div class="input-field">
-                <input type="text" placeholder="Entre com emaill" required>
-                <i class="uil uil-envelope icon"></i>
-            </div>
-            <div class="input-field">
-                <input type="password" class="password" placeholder="Digite a sua senha" required>
-                <i class="uil uil-lock icon"></i>
-                <i class="uil uil-eye-slash showHidePw"></i>
-            </div>
+              <form [formGroup]="form" (ngSubmit)="onLogin()">
+                  <div class="input-field">
+                      <input type="text" placeholder="Entre com usuário" formControlName="username">
+                  </div>
 
-            <div class="checkbox-text">
-                <div class="checkbox-content">
-                    <input type="checkbox" id="logCheck">
-                    <label for="logCheck" class="text">Salvar Login</label>
-                </div>
+                  <div class="input-field">
+                      <input type="password" class="password" placeholder="Digite a sua senha" formControlName="password">
+                  </div>
 
-                <a href="#" class="text">Esquceu a sua senha?</a>
-            </div>
+                  <div class="checkbox-text">
+                      <div class="checkbox-content">
+                          <input type="checkbox" id="logCheck">
+                          <label for="logCheck" class="text">Salvar Login</label>
+                      </div>
 
-            <div class="input-field button">
-                <input type="button" value="Entra">
-            </div>
-        </form>
+                      <a href="#" class="text">Esquceu a sua senha?</a>
+                  </div>
 
-        <div class="login-signup">
-            <span class="text">Não é um membro?
-                <a href="#" class="text signup-link">Inscreva-se agora</a>
-            </span>
-        </div>
+                  <div class="input-field button">
+                      <input type="submit" value="Entra">
+                  </div>
+              </form>
+
+              <div class="login-signup">
+                  <span class="text">Não é um membro?
+                      <a class="text signup-link" (click)="onCadastro()">Inscreva-se agora</a>
+                  </span>
+              </div>
+          </div>
       </div>
     </div>
   </div>
-</div>
+</ng-container>
+
+
+<ng-container *ngIf="cadastro">
+  <app-cadastro (login)="onCadastro()"></app-cadastro>
+</ng-container>
+
+

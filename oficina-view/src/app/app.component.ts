@@ -1,3 +1,4 @@
+import { LocalStorageService } from './services/local-storage.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'oficina-view';
+
+  user?: string;
+
+  constructor(
+    private localStorage: LocalStorageService,
+
+  ){
+
+  }
+
+  isPresent(){
+    let userPresent = this.localStorage.get('username');
+    this.user = userPresent;
+    return userPresent ? true: false;
+  }
 }

@@ -1,0 +1,50 @@
+<div class="corpo">
+  <div>
+    <form class="d-flex" role="search">
+        <input id="input-buscar-clientes" class="form-control me-2" type="search" placeholder="Digite o nome do cliente"
+            aria-label="Search">
+        <button id="botao-buscar-clientes" class="btn btn-outline-success" type="submit">Pesquisar</button>
+    </form>
+  </div>
+
+  <div id="tabela-clientes">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="id-cliente">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Contato</th>
+                <th scope="col">Email</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">
+                  <a class="add-button">
+                    <mat-icon >add</mat-icon>
+                  </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="fields">
+            <tr *ngFor="let cliente of clientes">
+                <td class="id-cliente">{{cliente.id}}</td>
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.cpf}}</td>
+                <td>{{cliente.contato}}</td>
+                <td>{{cliente.email}}</td>
+                <td>{{cliente.endereco}}</td>
+                <td>
+                    <div>
+                        <a class="edit">
+                          <mat-icon>edit</mat-icon>
+                        </a>
+                        <a class="delete">
+                          <mat-icon (click)="onExcluir(cliente.id)" color="">delete</mat-icon>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
