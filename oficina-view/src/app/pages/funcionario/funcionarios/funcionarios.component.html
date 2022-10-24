@@ -40,7 +40,7 @@
                           <mat-icon routerLink="/funcionarios/editar/{{funcionario.id}}">edit</mat-icon>
                         </a>
                         <a class="delete">
-                          <mat-icon (click)="onExcluir(funcionario.id)" color="">delete</mat-icon>
+                          <mat-icon (click)="openModalComponent(funcionario.id)" color="">delete</mat-icon>
                         </a>
                     </div>
                 </td>

@@ -1,35 +1,35 @@
-import { FuncionariosService } from './../../../services/funcionarios.service';
-import { Funcionario } from './../../../interfaces/funcionario';
+import { ServicosService } from './../../../services/servicos.service';
 import { Component, OnInit } from '@angular/core';
+import { Servico } from 'src/app/interfaces/servico';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ConfirmModalComponent } from 'src/app/components/confirm-modal/confirm-modal.component';
 
 @Component({
-  selector: 'app-funcionarios',
-  templateUrl: './funcionarios.component.html',
-  styleUrls: ['./funcionarios.component.css']
+  selector: 'app-servicos',
+  templateUrl: './servicos.component.html',
+  styleUrls: ['./servicos.component.css']
 })
-export class FuncionariosComponent implements OnInit {
+export class ServicosComponent implements OnInit {
 
-  funcionarios: Funcionario[] = [];
+  servicos?: Servico[];
 
   constructor(
-    private funcionarioService: FuncionariosService,
+    private servicoService: ServicosService,
     private bsModalService: BsModalService,
     private modalRef: BsModalRef
   ) { }
 
   ngOnInit(): void {
-    this.funcionarioService.listar().subscribe((funcionarios: Funcionario[])=>{
-      this.funcionarios = funcionarios;
+    this.servicoService.listar().subscribe((servico: Servico[])=>{
+      this.servicos = servico;
     })
   }
 
   openModalComponent(
-    idFuncionario?: number,
+    idServico?: number,
   ) {
     const initialStateDeletar = {
-      idFuncionario
+      idServico
     };
 
 

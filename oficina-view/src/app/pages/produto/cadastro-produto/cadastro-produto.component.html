@@ -1,1 +1,30 @@
-<p>cadastro-produto works!</p>
+<h1>{{idProduto? 'Editar' : "Cadastrar"}} Cliente</h1>
+<form id="form-clientes" class="row g-3 needs-validation" [formGroup]="produto" (ngSubmit)="cadastrar()">
+  <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">NOME</label>
+      <input type="text" class="form-control" formControlName="nome" placeholder="Nome do Produto">
+  </div>
+
+  <div class="col-md-4" *ngIf="!idProduto">
+      <label for="validationCustom02" class="form-label">Quantidade</label>
+      <input type="text" class="form-control" placeholder="Quantidade" formControlName="quantidade">
+  </div>
+
+  <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Valor de Custo</label>
+      <input type="text" class="form-control" placeholder="Valor de Custo" formControlName="valorCusto">
+  </div>
+
+  <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Valor Final</label>
+      <input type="text" class="form-control" formControlName="valorFinal" placeholder="Valor Final">
+  </div>
+
+  <div class="col-12" [align]="'center'">
+      <a>
+          <button id="botao-cadastrar-cliente" class="btn btn-success" type="submit" [disabled]="!produto.valid">
+            {{idProduto? 'Editar' : "Cadastrar"}}</button>
+      </a>
+  </div>
+</form>
+

@@ -1,7 +1,8 @@
+import { CadastroProdutoComponent } from './pages/produto/cadastro-produto/cadastro-produto.component';
 import { ProdutosComponent } from './pages/produto/produtos/produtos.component';
 import { CadastroFuncionarioComponent } from './pages/funcionario/cadastro-funcionario/cadastro-funcionario.component';
 import { FuncionariosComponent } from './pages/funcionario/funcionarios/funcionarios.component';
-import { CadastroClienteComponent } from './pages/cliente/cadastro/cadastro.component';
+import { CadastroClienteComponent } from './pages/cliente/cadastro-cliente/cadastro-cliente.component';
 import { ClientesComponent } from './pages/cliente/clientes/clientes.component';
 import { HomeComponent } from './components/home/home.component';
 import { GuardService } from './services/guard.service';
@@ -9,6 +10,8 @@ import { LoginComponent } from './pages/login/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './pages/login/cadastro/cadastro.component';
+import { ServicosComponent } from './pages/servico/servicos/servicos.component';
+import { CadastroServicosComponent } from './pages/servico/cadastro-servicos/cadastro-servicos.component';
 
 const routes: Routes = [
   {
@@ -21,6 +24,8 @@ const routes: Routes = [
   {
     path: '', pathMatch: 'full', redirectTo: 'login'
   },
+
+
   {
     path: 'home', canActivate:[GuardService], component: HomeComponent
   },
@@ -52,10 +57,21 @@ const routes: Routes = [
     path: 'produtos', canActivate:[GuardService], component: ProdutosComponent
   },
   {
-    path: 'funcionarios/cadastro', canActivate:[GuardService], component: CadastroFuncionarioComponent
+    path: 'produtos/cadastro', canActivate:[GuardService], component: CadastroProdutoComponent
   },
   {
-    path: 'funcionarios/editar/:id', canActivate:[GuardService], component: CadastroFuncionarioComponent
+    path: 'produtos/editar/:id', canActivate:[GuardService], component: CadastroProdutoComponent
+  },
+
+
+  {
+    path: 'servicos', canActivate:[GuardService], component: ServicosComponent
+  },
+  {
+    path: 'servicos/cadastro', canActivate:[GuardService], component: CadastroServicosComponent
+  },
+  {
+    path: 'servicos/editar/:id', canActivate:[GuardService], component: CadastroServicosComponent
   }
 ];
 

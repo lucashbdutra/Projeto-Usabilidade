@@ -13,32 +13,26 @@
             <tr>
                 <th class="id-cliente">#</th>
                 <th scope="col">Nome</th>
-                <th scope="col">CPF</th>
-                <th scope="col">Contato</th>
-                <th scope="col">Email</th>
-                <th scope="col">Endereço</th>
+                <th scope="col">Valor</th>
                 <th scope="col">
-                  <a class="add-button" routerLink="/clientes/cadastro">
+                  <a class="add-button" routerLink="/servicos/cadastro">
                     <mat-icon>add</mat-icon>
                   </a>
                 </th>
             </tr>
         </thead>
         <tbody class="fields">
-            <tr *ngFor="let cliente of clientes">
-                <td class="id-cliente">{{cliente.id}}</td>
-                <td>{{cliente.nome}}</td>
-                <td>{{cliente.cpf}}</td>
-                <td>{{cliente.contato}}</td>
-                <td>{{cliente.email}}</td>
-                <td>{{cliente.endereco}}</td>
+            <tr *ngFor="let servico of servicos">
+                <td class="id-cliente">{{servico.id}}</td>
+                <td>{{servico.nome}}</td>
+                <td>{{servico.valor}}</td>
                 <td>
                     <div>
                         <a class="edit">
-                          <mat-icon routerLink="/clientes/editar/{{cliente.id}}">edit</mat-icon>
+                          <mat-icon routerLink="/servicos/editar/{{servico.id}}">edit</mat-icon>
                         </a>
                         <a class="delete">
-                          <mat-icon (click)="openModalComponent(cliente.id)" color="">delete</mat-icon>
+                          <mat-icon (click)="openModalComponent(servico.id)" color="">delete</mat-icon>
                         </a>
                     </div>
                 </td>
