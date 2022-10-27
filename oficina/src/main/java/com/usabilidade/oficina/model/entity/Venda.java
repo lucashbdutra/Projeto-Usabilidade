@@ -3,6 +3,8 @@ package com.usabilidade.oficina.model.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,6 +15,8 @@ public class Venda extends GenericEntity<Long>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Date data;
+    private BigDecimal valor;
 
     @ManyToMany
     @JoinColumn(name = "fk_servicos_id")

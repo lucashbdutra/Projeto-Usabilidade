@@ -42,6 +42,7 @@ export class CadastroServicosComponent implements OnInit {
 
   cadastrar(){
     const servico = this.servico.value as Servico;
+    servico.disponivel = true;
     const id = this.idServico;
 
     if(id != 0){

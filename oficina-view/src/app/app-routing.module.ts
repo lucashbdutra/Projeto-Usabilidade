@@ -1,3 +1,4 @@
+import { EstoqueComponent } from './pages/estoque/estoque.component';
 import { CadastroProdutoComponent } from './pages/produto/cadastro-produto/cadastro-produto.component';
 import { ProdutosComponent } from './pages/produto/produtos/produtos.component';
 import { CadastroFuncionarioComponent } from './pages/funcionario/cadastro-funcionario/cadastro-funcionario.component';
@@ -12,6 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './pages/login/cadastro/cadastro.component';
 import { ServicosComponent } from './pages/servico/servicos/servicos.component';
 import { CadastroServicosComponent } from './pages/servico/cadastro-servicos/cadastro-servicos.component';
+import { VendasComponent } from './pages/vendas/vendas.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,12 @@ const routes: Routes = [
 
   {
     path: 'home', canActivate:[GuardService], component: HomeComponent
+  },
+  {
+    path: 'estoque', canActivate:[GuardService], component: EstoqueComponent
+  },
+  {
+    path: 'venda', canActivate:[GuardService], component: VendasComponent
   },
 
 

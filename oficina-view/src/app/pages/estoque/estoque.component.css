@@ -70,3 +70,11 @@
 .fields{
   margin-right: 100px;
 }
+
+#tabela-clientes{
+  width: 50%;
+}
+
+h2{
+  text-align: center;
+}

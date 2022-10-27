@@ -24,6 +24,8 @@ import { CadastroProdutoComponent } from './pages/produto/cadastro-produto/cadas
 import { ProdutosComponent } from './pages/produto/produtos/produtos.component';
 import { CadastroServicosComponent } from './pages/servico/cadastro-servicos/cadastro-servicos.component';
 import { ServicosComponent } from './pages/servico/servicos/servicos.component';
+import { EstoqueComponent } from './pages/estoque/estoque.component';
+import { VendasComponent } from './pages/vendas/vendas.component';
 
 
 
@@ -42,7 +44,9 @@ import { ServicosComponent } from './pages/servico/servicos/servicos.component';
     CadastroClienteComponent,
     ServicosComponent,
     CadastroServicosComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    EstoqueComponent,
+    VendasComponent
 
   ],
   imports: [

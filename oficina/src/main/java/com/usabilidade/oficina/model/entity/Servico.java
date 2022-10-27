@@ -18,6 +18,7 @@ public class Servico extends GenericEntity<Long>{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    private Boolean disponivel;
     private BigDecimal valor;
 
 }
