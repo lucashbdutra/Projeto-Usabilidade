@@ -24,7 +24,12 @@ export class VendasComponent implements OnInit {
   servicos?: Servico[];
   clientes?: Cliente[];
 
-  teste: Servico[] = [];
+  produto?: Produto;
+  servico?: Servico;
+  cliente?: Cliente;
+
+  produtosList: Produto[] = [];
+  servicosList: Servico[] = [];
 
   constructor(
     private formBuilder: NonNullableFormBuilder,
@@ -49,21 +54,47 @@ export class VendasComponent implements OnInit {
     })
   }
 
-  handleProducts(produtos: Produto){
-    console.log(produtos)
+  handleProducts(produto: Produto){
+    this.produto = produto;
 
   }
 
   handleServices(servico: Servico){
-    if(this.teste.includes(servico)){
-      let index = this.teste.indexOf(servico);
-      this.teste.splice(index, 1)
-    }
-    this.teste.push(servico)
+
+    this.servico = servico;
+    // if(this.teste.includes(servico)){
+    //   let index = this.teste.indexOf(servico);
+    //   this.teste.splice(index, 1)
+    // }
+    // this.teste.push(servico)
   }
 
   handleClients(cliente: Cliente){
-    console.log(cliente)
+    this.cliente = cliente;
+  }
+
+  setList(tipo: string){
+    if(tipo == 'servico'){
+      let servico = this.servico as Servico
+
+      if(!this.servicosList.includes(servico)){
+        this.servicosList.push(servico);
+      }
+
+    } else {
+      let produto = this.produto as Produto
+
+      if(!this.produtosList.includes(produto)){
+        this.produtosList.push(produto);
+      }
+    }
+  }
+
+  calculo(){
+
+    console.log(this.produtosList)
+    console.log(this.servicosList)
+    console.log(this.cliente)
   }
 
   onSubmit(){

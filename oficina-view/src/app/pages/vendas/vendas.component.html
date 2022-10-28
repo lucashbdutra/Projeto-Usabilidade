@@ -26,14 +26,11 @@
                 <td>
                   <div class="input-div">
                     <input
-
+                      [disabled]="!servico.disponivel"
                       class="form-check-input"
-                      type="checkbox"
-                      name="test[]"
-                      value="soi"
-                      formControlName="produtos"
-
-
+                      type="radio"
+                      name="servico"
+                      (change)="handleServices(servico)"
                     />
                   </div>
                 </td>
@@ -42,9 +39,8 @@
                 <td>R$ {{ servico.valor }},00</td>
               </tr>
             </tbody>
-            <button type="submit">TESTE</button>
           </table>
-
+          <button (click)="setList('servico')" >TESTE</button>
         </div>
       </div>
       <div class="col">
@@ -71,7 +67,7 @@
                       [disabled]="produto.quantidade === 0"
                       class="form-check-input"
                       type="radio"
-                      name="te"
+                      name="produto"
                       (change)="handleProducts(produto)"
                     />
                   </div>
@@ -82,7 +78,7 @@
               </tr>
             </tbody>
           </table>
-
+          <button (click)="setList('produto')" >TESTE</button>
         </div>
       </div>
     </div>
@@ -110,9 +106,8 @@
                     <input
                       class="form-check-input"
                       type="radio"
+                      name="cliente"
                       (change)="handleClients(cliente)"
-                      name="teste"
-                      value="testes"
                     />
                   </div>
                 </td>
@@ -125,6 +120,8 @@
         </div>
       </div>
       <div class="col">
+
+        <button (click)="calculo()">Testao</button>
         <!-- <label for="textInput" class="form-label">Valor</label>
         <input
           type="text"
@@ -133,7 +130,7 @@
           placeholder="Digite o valor"
 
         /> -->
-        <div *ngFor="let a of teste">{{a.nome}}</div>
+        <!-- <div *ngFor="let a of teste">{{a.nome}}</div> -->
       </div>
     </div>
   </form>
