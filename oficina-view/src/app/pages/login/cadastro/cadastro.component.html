@@ -6,7 +6,7 @@
 
             <form [formGroup]="form" (ngSubmit)="onCadastro()">
                 <div class="input-field">
-                    <input type="text" placeholder="Entre com usuário" formControlName="username">
+                    <input type="text" placeholder="Nome de usuário" formControlName="username">
                 </div>
 
                 <div class="input-field">
@@ -14,15 +14,8 @@
                 </div>
 
                 <div class="input-field">
-                  <input type="password" class="password" placeholder="Digite a sua senha" formControlName="confirmarSenha">
+                  <input type="password" class="password" placeholder="Confirme a sua senha" formControlName="confirmarSenha">
               </div>
-
-                <div class="checkbox-text">
-                  <div class="checkbox-content">
-                      <input type="checkbox" id="termCon">
-                      <label for="termCon" class="text">Eu aceito todos os termos e condições</label>
-                  </div>
-                </div>
 
                 <div class="input-field button">
                     <input type="submit" value="Cadastrar">

@@ -1,83 +1,83 @@
 <th>
-  <div class="navegacao d-flex flex-column flex-shrink-0 p-3">
-    <div>
-        <h1 id="gestao">Gestão Online</h1>
+    <div class="navegacao d-flex flex-column flex-shrink-0 p-3">
+        <div>
+            <h2 id="gestao">Gestão Online</h2>
+        </div>
+
+        <ul>
+            <li class="list">
+                <a href="">
+                    <span class="icone"><img src="assets/Menu/inicio.svg" alt="" width="20px"></span>
+                    <span class="menu">Inicio</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a routerLink="clientes">
+                    <span class="icone"><img src="assets/Menu/clientes.svg" alt="" width="20px"></span>
+                    <span class="menu">Clientes</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a routerLink="funcionarios">
+                    <span class="icone"><img src="assets/Menu/clientes.svg" alt="" width="20px"></span>
+                    <span class="menu">Funcionários</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a routerLink="estoque">
+                    <span class="icone"><img src="assets/Menu/estoque.svg" alt="" width="20px"></span>
+                    <span class="menu">Estoque</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a routerLink="produtos">
+                    <span class="icone"><img src="assets/Menu/estoque.svg" alt="" width="20px"></span>
+                    <span class="menu">Produtos</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a routerLink="servicos">
+                    <span class="icone"><img src="assets/Menu/estoque.svg" alt="" width="20px"></span>
+                    <span class="menu">Serviços</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a routerLink="venda">
+                    <span class="icone"><img src="assets/Menu/vendas.svg" alt="" width="20px"></span>
+                    <span class="menu">Vendas</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="#">
+                    <span class="icone"><img src="assets/Menu/financas.svg" alt="" width="20px"></span>
+                    <span class="menu">Finanças</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="#">
+                    <span class="icone"><img src="assets/Menu/fornecedores.svg" alt="" width="20px"></span>
+                    <span class="menu">Fornecedores</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="#">
+                    <span class="icone"><img src="assets/Menu/sair.svg" alt="" width="20px"></span>
+                    <span class="menu" (click)="onLogOut()">Sair</span>
+                </a>
+            </li>
+
+        </ul>
     </div>
-
-    <ul>
-        <li class="list active">
-            <a href="">
-                <span class="icone"><img src="assets/Menu/inicio.svg" alt="" width="20px"></span>
-                <span class="menu">Inicio</span>
-            </a>
-        </li>
-
-        <li class="list">
-            <a routerLink="clientes">
-                <span class="icone"><img src="assets/Menu/clientes.svg" alt="" width="20px"></span>
-                <span class="menu">Clientes</span>
-            </a>
-        </li>
-
-        <li class="list">
-          <a routerLink="funcionarios">
-              <span class="icone"><img src="assets/Menu/clientes.svg" alt="" width="20px"></span>
-              <span class="menu">Funcionários</span>
-          </a>
-        </li>
-
-        <li class="list">
-            <a routerLink="estoque">
-                <span class="icone"><img src="assets/Menu/estoque.svg" alt="" width="20px"></span>
-                <span class="menu">Estoque</span>
-            </a>
-        </li>
-
-        <li class="list">
-          <a routerLink="produtos">
-              <span class="icone"><img src="assets/Menu/estoque.svg" alt="" width="20px"></span>
-              <span class="menu">Produtos</span>
-          </a>
-        </li>
-
-        <li class="list">
-          <a routerLink="servicos">
-              <span class="icone"><img src="assets/Menu/estoque.svg" alt="" width="20px"></span>
-              <span class="menu">Serviços</span>
-          </a>
-        </li>
-
-        <li class="list">
-            <a routerLink="venda">
-                <span class="icone"><img src="assets/Menu/vendas.svg" alt="" width="20px"></span>
-                <span class="menu">Vendas</span>
-            </a>
-        </li>
-
-        <li class="list">
-            <a href="#">
-                <span class="icone"><img src="assets/Menu/financas.svg" alt="" width="20px"></span>
-                <span class="menu">Finanças</span>
-            </a>
-        </li>
-
-        <li class="list">
-            <a href="#">
-                <span class="icone"><img src="assets/Menu/fornecedores.svg" alt="" width="20px"></span>
-                <span class="menu">Fornecedores</span>
-            </a>
-        </li>
-
-        <li class="list">
-            <a href="#">
-                <span class="icone"><img src="assets/Menu/sair.svg" alt="" width="20px"></span>
-                <span class="menu" (click)="onLogOut()">Sair</span>
-            </a>
-        </li>
-
-    </ul>
-</div>
 </th>
 <th class="page">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </th>
