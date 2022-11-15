@@ -20,11 +20,14 @@
       <input type="text" class="form-control" formControlName="valorFinal" placeholder="Valor Final">
   </div>
 
-  <div class="col-12" [align]="'center'">
+  <div class="col" [align]="'center'">
       <a>
           <button id="botao-cadastrar-cliente" class="btn btn-success" type="submit" [disabled]="!produto.valid">
             {{idProduto? 'Editar' : "Cadastrar"}}</button>
       </a>
   </div>
 </form>
+
+
+
 

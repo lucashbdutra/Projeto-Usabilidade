@@ -3,5 +3,6 @@ export interface Produto {
   nome: string,
   quantidade: number,
   valorCusto: number,
-  valorFinal: number
+  valorFinal: number,
+  mes: string
 }

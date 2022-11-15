@@ -1,4 +1,3 @@
-import { EstoqueComponent } from './pages/estoque/estoque.component';
 import { CadastroProdutoComponent } from './pages/produto/cadastro-produto/cadastro-produto.component';
 import { ProdutosComponent } from './pages/produto/produtos/produtos.component';
 import { CadastroFuncionarioComponent } from './pages/funcionario/cadastro-funcionario/cadastro-funcionario.component';
@@ -11,9 +10,9 @@ import { LoginComponent } from './pages/login/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './pages/login/cadastro/cadastro.component';
-import { ServicosComponent } from './pages/servico/servicos/servicos.component';
-import { CadastroServicosComponent } from './pages/servico/cadastro-servicos/cadastro-servicos.component';
-import { VendasComponent } from './pages/vendas/vendas.component';
+import { VendasComponent } from './pages/venda/vendas/vendas.component';
+import { SelectClientComponent } from './pages/venda/select-client/select-client.component';
+import { GastosMensaisComponent } from './pages/financas/gastos-mensais/gastos-mensais.component';
 
 const routes: Routes = [
   {
@@ -32,10 +31,15 @@ const routes: Routes = [
     path: 'home', canActivate:[GuardService], component: HomeComponent
   },
   {
-    path: 'estoque', canActivate:[GuardService], component: EstoqueComponent
+    path: 'financas', canActivate:[GuardService], component: GastosMensaisComponent
+  },
+
+
+  {
+    path: 'venda', canActivate:[GuardService], component: SelectClientComponent
   },
   {
-    path: 'venda', canActivate:[GuardService], component: VendasComponent
+    path: 'venda/finalizar/:id', canActivate:[GuardService], component: VendasComponent
   },
 
 
@@ -47,6 +51,9 @@ const routes: Routes = [
   },
   {
     path: 'clientes/editar/:id', canActivate:[GuardService], component: CadastroClienteComponent
+  },
+  {
+    path: 'clientes/cadastro/venda', canActivate:[GuardService], component: CadastroClienteComponent
   },
 
 
@@ -70,17 +77,6 @@ const routes: Routes = [
   {
     path: 'produtos/editar/:id', canActivate:[GuardService], component: CadastroProdutoComponent
   },
-
-
-  {
-    path: 'servicos', canActivate:[GuardService], component: ServicosComponent
-  },
-  {
-    path: 'servicos/cadastro', canActivate:[GuardService], component: CadastroServicosComponent
-  },
-  {
-    path: 'servicos/editar/:id', canActivate:[GuardService], component: CadastroServicosComponent
-  }
 ];
 
 @NgModule({

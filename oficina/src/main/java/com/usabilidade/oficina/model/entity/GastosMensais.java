@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Data
@@ -22,6 +23,9 @@ public class GastosMensais extends GenericEntity<Long>{
     private BigDecimal agua;
     private BigDecimal internet;
     private BigDecimal custoProdutos;
+    private BigDecimal lucro;
+    private String mes;
+    private Date fechamento;
 
 
 }

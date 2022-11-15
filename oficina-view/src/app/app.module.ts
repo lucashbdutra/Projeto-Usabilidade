@@ -22,10 +22,9 @@ import { CadastroComponent } from './pages/login/cadastro/cadastro.component';
 import { LoginComponent } from './pages/login/login/login.component';
 import { CadastroProdutoComponent } from './pages/produto/cadastro-produto/cadastro-produto.component';
 import { ProdutosComponent } from './pages/produto/produtos/produtos.component';
-import { CadastroServicosComponent } from './pages/servico/cadastro-servicos/cadastro-servicos.component';
-import { ServicosComponent } from './pages/servico/servicos/servicos.component';
-import { EstoqueComponent } from './pages/estoque/estoque.component';
-import { VendasComponent } from './pages/vendas/vendas.component';
+import { VendasComponent } from './pages/venda/vendas/vendas.component';
+import { SelectClientComponent } from './pages/venda/select-client/select-client.component';
+import { GastosMensaisComponent } from './pages/financas/gastos-mensais/gastos-mensais.component';
 
 
 
@@ -42,11 +41,10 @@ import { VendasComponent } from './pages/vendas/vendas.component';
     ProdutosComponent,
     CadastroProdutoComponent,
     CadastroClienteComponent,
-    ServicosComponent,
-    CadastroServicosComponent,
     ConfirmModalComponent,
-    EstoqueComponent,
-    VendasComponent
+    VendasComponent,
+    SelectClientComponent,
+    GastosMensaisComponent
 
   ],
   imports: [

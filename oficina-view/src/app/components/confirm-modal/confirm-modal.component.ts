@@ -1,4 +1,3 @@
-import { ServicosService } from './../../services/servicos.service';
 import { ProdutosService } from './../../services/produtos.service';
 import { FuncionariosService } from './../../services/funcionarios.service';
 import { ClientesService } from './../../services/clientes.service';
@@ -28,7 +27,6 @@ export class ConfirmModalComponent implements OnInit {
     private clientesService: ClientesService,
     private funcionarioService: FuncionariosService,
     private produtoService: ProdutosService,
-    private servicoService: ServicosService,
     private toaster: ToastrService,
     private router: Router
   ) {}
@@ -66,17 +64,6 @@ export class ConfirmModalComponent implements OnInit {
       this.produtoService.deletar(this.idProduto).subscribe(
         (produto) => {
           this.tipo = 'produtos';
-          this.fecharModal();
-        },
-        (error) => {
-          console.log(error)
-        }
-      )
-    }
-    if(this.idServico!=0){
-      this.servicoService.deletar(this.idServico).subscribe(
-        (servico) => {
-          this.tipo = 'servicos';
           this.fecharModal();
         },
         (error) => {

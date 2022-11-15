@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EstoqueComponent } from './estoque.component';
+import { SelectClientComponent } from './select-client.component';
 
-describe('EstoqueComponent', () => {
-  let component: EstoqueComponent;
-  let fixture: ComponentFixture<EstoqueComponent>;
+describe('SelectClientComponent', () => {
+  let component: SelectClientComponent;
+  let fixture: ComponentFixture<SelectClientComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EstoqueComponent ]
+      declarations: [ SelectClientComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EstoqueComponent);
+    fixture = TestBed.createComponent(SelectClientComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

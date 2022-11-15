@@ -1,3 +1,4 @@
+import { Validacoes } from './../../../components/utils/validacoes';
 import { Component, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,14 +14,30 @@ import { ClientesService } from 'src/app/services/clientes.service';
 export class CadastroClienteComponent implements OnInit {
 
   idCliente = 0;
+  isVenda = '';
 
   cliente = this.formBuilder.group({
-    nome:['', Validators.required],
-    cpf:['', Validators.required],
+    nome:[
+      '',
+      Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(100)
+      ])
+    ],
+    cpf:[
+      '',
+      Validators.compose([
+        Validators.required,
+        Validacoes.ValidaCpf
+      ])
+    ],
     contato:['', Validators.required],
     email:['', Validators.email],
     endereco:['', Validators.required]
   })
+
+  cpf = this.cliente.get('cpf');
 
   constructor(
     private formBuilder: NonNullableFormBuilder,
@@ -32,6 +49,7 @@ export class CadastroClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.idCliente = Number(this.route.snapshot.paramMap.get('id'));
+    this.isVenda = String(this.route.snapshot.routeConfig?.path);
 
     if(this.idCliente!=0){
       this.clienteService.buscaPorId(this.idCliente).subscribe((cliente: Cliente) => {
@@ -63,11 +81,18 @@ export class CadastroClienteComponent implements OnInit {
         });
       });
     }
+
     this.clienteService.salvar(cliente).subscribe(() => {
       this.toaster.success('Cadastro realizado com sucesso!', '', {
         timeOut: 3000,
       });
-      this.router.navigate(['/clientes']);
+
+      if(this.isVenda == 'clientes/cadastro/venda'){
+        this.router.navigate(['/venda']);
+      } else{
+        this.router.navigate(['/clientes']);
+      }
+
     }, (erro) => {
       this.toaster.error('Houve um problema com sua solicitação!', '', {
         timeOut: 2000,

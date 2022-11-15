@@ -26,7 +26,7 @@ export class ProdutosService {
   }
 
   salvar(produto: Partial<Produto>){
-    return this.http.post<Produto>(`${this.api}/${this.endpoint}/`, produto, this.loginService.getOptions());
+    return this.http.post<Produto>(`${this.api}/${this.endpoint}/create`, produto, this.loginService.getOptions());
   }
 
   editar(id: number, produto: Partial<Produto>){

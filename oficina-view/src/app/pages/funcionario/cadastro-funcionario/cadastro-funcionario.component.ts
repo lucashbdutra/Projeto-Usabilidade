@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Validacoes } from 'src/app/components/utils/validacoes';
 
 @Component({
   selector: 'app-cadastro-funcionario',
@@ -15,8 +16,19 @@ export class CadastroFuncionarioComponent implements OnInit {
   idFuncionario = 0;
 
   funcionario = this.formBuilder.group({
-    nome:['', Validators.required],
-    cpf:['', Validators.required],
+    nome:['',
+    Validators.compose([
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(100)
+    ])
+    ],
+    cpf:['',
+    Validators.compose([
+      Validators.required,
+      Validacoes.ValidaCpf
+    ])
+    ],
     contato:['', Validators.required],
     email:['', Validators.email],
     endereco:['', Validators.required],
