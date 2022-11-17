@@ -1,0 +1,42 @@
+<div class="corpo">
+  <div>
+    <form class="d-flex" role="search">
+        <input id="input-buscar-clientes" class="form-control me-2" type="search" placeholder="Digite o nome do cliente"
+            aria-label="Search">
+        <button id="botao-buscar-clientes" class="btn btn-outline-success" type="submit">Pesquisar</button>
+    </form>
+    <button class="btn btn-danger" routerLink="/financas">Voltar</button>
+  </div>
+
+  <div id="tabela-clientes">
+    <table class="table table-striped table-active">
+        <thead>
+            <tr>
+                <th scope="col">Agua</th>
+                <th scope="col">Energia</th>
+                <th scope="col">Internet</th>
+                <th scope="col">Funcionários</th>
+                <th scope="col">Produtos</th>
+                <th scope="col">Mês</th>
+                <th scope="col">Lucro</th>
+            </tr>
+        </thead>
+        <tbody class="fields">
+            <tr *ngFor="let gasto of gastos">
+                <td>{{gasto.agua}}</td>
+                <td>{{gasto.energia}}</td>
+                <td>{{gasto.internet}}</td>
+                <td>{{gasto.funcionarios}}</td>
+                <td>{{gasto.custoProdutos}}</td>
+                <td>{{gasto.mes}}</td>
+                <td class="bg-success" *ngIf="lucro(gasto.lucro)">{{gasto.lucro}}</td>
+                <td class="bg-danger" *ngIf="!lucro(gasto.lucro)">{{gasto.lucro}}</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+

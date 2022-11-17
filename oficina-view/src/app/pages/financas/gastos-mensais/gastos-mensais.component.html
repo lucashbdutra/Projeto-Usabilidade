@@ -1,1 +1,102 @@
-<p>gastos-mensais works!</p>
+<ng-container *ngIf="!fechamento">
+
+  <button class="btn btn-primary" routerLink="relatorio"> Relatório </button>
+
+  <h1>Cacular Gastos Mensais</h1>
+  <form id="form-clientes" class="row g-3 needs-validation" [formGroup]="gastos" (ngSubmit)="calcular()">
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Custo da Água</label>
+        <input type="text" class="form-control" formControlName="agua" placeholder="Digite o valor da conta de água">
+    </div>
+
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Custo da Energia</label>
+        <input type="text" class="form-control" formControlName="energia" placeholder="Digite o valor da conta de energia">
+    </div>
+
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Custo da Internet</label>
+        <input type="text" class="form-control" formControlName="internet" placeholder="Digite o valor da conta da Internet">
+    </div>
+
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Mês de Referência</label>
+      <input type="text" class="form-control" formControlName="mes" placeholder="Digite o de referência para o fechamento">
+  </div>
+
+    <div class="col" [align]="'center'">
+        <a>
+            <button id="botao-cadastrar-cliente" class="btn btn-success" type="submit"
+            [disabled]="!gastos.valid"> Calcular </button>
+        </a>
+    </div>
+  </form>
+</ng-container>
+
+<ng-container *ngIf="fechamento">
+
+  <div class="centralizar">
+<!-- <ul class="list-group">
+    <li class="list-group-item">{{fechamento.agua}}</li>
+    <li class="list-group-item">{{fechamento.energia}}</li>
+    <li class="list-group-item">{{fechamento.internet}}</li>
+    <li class="list-group-item">{{fechamento.custoProdutos}}</li>
+    <li class="list-group-item">{{fechamento.funcionarios}}</li>
+    <li class="list-group-item">{{fechamento.lucro}}</li>
+  </ul> -->
+
+    <table class="table table-striped table-active">
+      <thead>
+
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Custo da Água</th>
+          <td>{{fechamento.agua}}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Custo da Energia</th>
+          <td>{{fechamento.energia}}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Custo da Internet</th>
+          <td>{{fechamento.internet}}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Custo dos Produtos</th>
+          <td>{{fechamento.custoProdutos}}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Salário do Funcionários</th>
+          <td>{{fechamento.funcionarios}}</td>
+        </tr>
+
+        <tr class="bg-success" *ngIf="lucro()">
+          <th scope="row">Lucro</th>
+          <td>{{fechamento.lucro}}</td>
+        </tr>
+
+        <tr class="bg-danger" *ngIf="!lucro()">
+          <th scope="row">Lucro</th>
+          <td>{{fechamento.lucro}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <div class="centralizar">
+    <button class="btn btn-danger margin" (click)="back()"> Voltar </button>
+    <button class="btn btn-primary" (click)="salvar()"> Finalizar </button>
+  </div>
+</ng-container>
+
+
+
+
+
+
+

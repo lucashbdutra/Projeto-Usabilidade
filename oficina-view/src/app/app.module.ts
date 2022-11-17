@@ -16,15 +16,16 @@ import { HomeComponent } from './components/home/home.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { CadastroClienteComponent } from './pages/cliente/cadastro-cliente/cadastro-cliente.component';
 import { ClientesComponent } from './pages/cliente/clientes/clientes.component';
+import { GastosMensaisComponent } from './pages/financas/gastos-mensais/gastos-mensais.component';
+import { RelatorioComponent } from './pages/financas/relatorio/relatorio.component';
 import { CadastroFuncionarioComponent } from './pages/funcionario/cadastro-funcionario/cadastro-funcionario.component';
 import { FuncionariosComponent } from './pages/funcionario/funcionarios/funcionarios.component';
 import { CadastroComponent } from './pages/login/cadastro/cadastro.component';
 import { LoginComponent } from './pages/login/login/login.component';
 import { CadastroProdutoComponent } from './pages/produto/cadastro-produto/cadastro-produto.component';
 import { ProdutosComponent } from './pages/produto/produtos/produtos.component';
-import { VendasComponent } from './pages/venda/vendas/vendas.component';
 import { SelectClientComponent } from './pages/venda/select-client/select-client.component';
-import { GastosMensaisComponent } from './pages/financas/gastos-mensais/gastos-mensais.component';
+import { VendasComponent } from './pages/venda/vendas/vendas.component';
 
 
 
@@ -44,7 +45,8 @@ import { GastosMensaisComponent } from './pages/financas/gastos-mensais/gastos-m
     ConfirmModalComponent,
     VendasComponent,
     SelectClientComponent,
-    GastosMensaisComponent
+    GastosMensaisComponent,
+    RelatorioComponent
 
   ],
   imports: [

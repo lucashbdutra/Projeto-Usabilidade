@@ -17,12 +17,16 @@ export class GastosMensaisService {
     private loginService: LoginService
   ) { }
 
-  calcularGastos(gastos: Gastos){
-    this.http.post<Gastos>(`${this.api}/${this.endpoint}/gerarGastos`, gastos, this.loginService.getOptions())
+  calcularGastos(gastos: Partial<Gastos>){
+    return this.http.post<Gastos>(`${this.api}/${this.endpoint}/gerarGastos`, gastos, this.loginService.getOptions())
   }
 
-  gerarFechamento(gastos: Gastos){
-    this.http.post<Gastos>(`${this.api}/${this.endpoint}/fechamento`, gastos, this.loginService.getOptions())
+  gerarFechamento(gastos: Partial<Gastos>){
+    return this.http.post<Gastos>(`${this.api}/${this.endpoint}/fechamento`, gastos, this.loginService.getOptions())
+  }
+
+  listar(){
+    return this.http.get<Gastos[]>(`${this.api}/${this.endpoint}/`);
   }
 
 }

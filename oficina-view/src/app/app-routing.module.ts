@@ -1,3 +1,4 @@
+import { RelatorioComponent } from './pages/financas/relatorio/relatorio.component';
 import { CadastroProdutoComponent } from './pages/produto/cadastro-produto/cadastro-produto.component';
 import { ProdutosComponent } from './pages/produto/produtos/produtos.component';
 import { CadastroFuncionarioComponent } from './pages/funcionario/cadastro-funcionario/cadastro-funcionario.component';
@@ -30,8 +31,13 @@ const routes: Routes = [
   {
     path: 'home', canActivate:[GuardService], component: HomeComponent
   },
+
+
   {
     path: 'financas', canActivate:[GuardService], component: GastosMensaisComponent
+  },
+  {
+    path: 'financas/relatorio', canActivate:[GuardService], component: RelatorioComponent
   },
 
 
