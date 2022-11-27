@@ -12,6 +12,8 @@ import { ConfirmModalComponent } from 'src/app/components/confirm-modal/confirm-
 export class FuncionariosComponent implements OnInit {
 
   funcionarios: Funcionario[] = [];
+  backup: Funcionario[] = [];
+  p: number = 0;
 
   constructor(
     private funcionarioService: FuncionariosService,
@@ -38,6 +40,14 @@ export class FuncionariosComponent implements OnInit {
       class: 'my-modal',
     });
 
+  }
+
+  search(event: Event){
+    const target = event.target as HTMLInputElement
+    const value = target.value
+    this.funcionarios = this.backup.filter((funcionario) => {
+      return funcionario.nome.toLowerCase().includes(value);
+    })
   }
 
 }

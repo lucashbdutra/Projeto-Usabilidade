@@ -17,7 +17,7 @@ public class Venda extends GenericEntity<Long>{
     private Long id;
     private Date data;
     private BigDecimal valor;
-    private String mes;
+    private String mesAno;
 
     @ManyToMany
     @JoinColumn(name = "fk_produto_id")

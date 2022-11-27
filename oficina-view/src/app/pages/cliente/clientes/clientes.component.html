@@ -1,15 +1,17 @@
 <div class="corpo">
+
+  <h2>Clientes</h2>
+
   <div>
     <form class="d-flex" role="search">
-        <input id="input-buscar-clientes" class="form-control me-2" type="search" placeholder="Digite o nome do cliente"
-            aria-label="Search">
-        <button id="botao-buscar-clientes" class="btn btn-outline-success" type="submit">Pesquisar</button>
+      <input id="input-buscar-clientes" class="form-control me-2" type="search" placeholder="Digite o nome do cliente"
+      aria-label="Search" (input)="search($event)">
     </form>
   </div>
 
   <div id="tabela-clientes">
-    <table class="table">
-        <thead>
+    <table class="table table-dark table-striped">
+        <thead class="table-secondary">
             <tr>
                 <th class="id-cliente">#</th>
                 <th scope="col">Nome</th>
@@ -25,7 +27,7 @@
             </tr>
         </thead>
         <tbody class="fields">
-            <tr *ngFor="let cliente of clientes">
+            <tr *ngFor="let cliente of clientes | paginate: { itemsPerPage: 5, currentPage: p }">
                 <td class="id-cliente">{{cliente.id}}</td>
                 <td>{{cliente.nome}}</td>
                 <td>{{cliente.cpf}}</td>
@@ -47,6 +49,13 @@
     </table>
   </div>
 </div>
+<pagination-controls
+  class="my-pagination"
+  (pageChange)="p = $event"
+  *ngIf="clientes.length > 0"
+  previousLabel="Previous"
+  nextLabel="Next"
+  ></pagination-controls>
 
 
 

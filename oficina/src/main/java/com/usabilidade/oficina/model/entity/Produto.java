@@ -23,6 +23,7 @@ public class Produto extends GenericEntity<Long>{
     private Integer quantidade;
     private BigDecimal valorCusto;
     private BigDecimal valorFinal;
-    private String mes;
+    private Boolean isService;
+    private String data;
 
 }

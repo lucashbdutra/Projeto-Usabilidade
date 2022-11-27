@@ -1,7 +1,6 @@
 package com.usabilidade.oficina.model.service;
 
 import com.usabilidade.oficina.model.entity.Produto;
-import com.usabilidade.oficina.model.entity.Servico;
 import com.usabilidade.oficina.model.entity.Venda;
 import com.usabilidade.oficina.model.repository.ProdutosRepository;
 import com.usabilidade.oficina.model.repository.VendasRepository;
@@ -28,27 +27,38 @@ public class VendaService extends GenericCrudService<Venda, Long, VendasReposito
     public Venda makeSell(Venda venda){
 
         Date date = new Date();
-        Format format = new SimpleDateFormat("MM");
+        Format format = new SimpleDateFormat("MM/yyyy");
         List<Produto> produtos = venda.getProdutos();
         long subtotal = 0;
         BigDecimal total;
 
         for(Produto produto: produtos){
+
             Produto alterQuant = produtosRepository.findById(produto.getId())
                     .orElseThrow(IndexOutOfBoundsException::new);
-            alterQuant.setQuantidade(alterQuant.getQuantidade() - produto.getQuantidade());
-            produtosRepository.save(alterQuant);
 
-            subtotal += produto.getQuantidade() * produto.getValorFinal().floatValue();
+            if(produto.getIsService()){
+
+                subtotal += produto.getValorFinal().floatValue();
+
+            } else {
+
+                alterQuant.setQuantidade(alterQuant.getQuantidade() - produto.getQuantidade());
+                produtosRepository.save(alterQuant);
+
+                subtotal += produto.getQuantidade() * produto.getValorFinal().floatValue();
+            }
+
         }
 
         total = BigDecimal.valueOf(subtotal);
         venda.setData(date);
         venda.setValor(total);
-        venda.setMes(format.format(date));
+        venda.setMesAno(format.format(date));
 
         vendasRepository.save(venda);
         return venda;
     }
+
 
 }

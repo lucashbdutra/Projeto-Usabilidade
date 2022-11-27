@@ -4,5 +4,6 @@ export interface Produto {
   quantidade: number,
   valorCusto: number,
   valorFinal: number,
-  mes: string
+  data: string
+  isService: boolean;
 }

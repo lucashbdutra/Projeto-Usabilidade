@@ -26,6 +26,8 @@ import { CadastroProdutoComponent } from './pages/produto/cadastro-produto/cadas
 import { ProdutosComponent } from './pages/produto/produtos/produtos.component';
 import { SelectClientComponent } from './pages/venda/select-client/select-client.component';
 import { VendasComponent } from './pages/venda/vendas/vendas.component';
+import { ServicosComponent } from './pages/produto/servicos/servicos.component';
+import { EstoqueComponent } from './pages/produto/estoque/estoque.component';
 
 
 
@@ -46,7 +48,9 @@ import { VendasComponent } from './pages/venda/vendas/vendas.component';
     VendasComponent,
     SelectClientComponent,
     GastosMensaisComponent,
-    RelatorioComponent
+    RelatorioComponent,
+    ServicosComponent,
+    EstoqueComponent
 
   ],
   imports: [

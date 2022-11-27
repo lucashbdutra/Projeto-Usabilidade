@@ -19,7 +19,7 @@ export class ConfirmModalComponent implements OnInit {
   idProduto:     number = 0;
   idServico:     number = 0;
 
-  tipo: string = '';
+  tipo: string = 'home';
 
 
   constructor(

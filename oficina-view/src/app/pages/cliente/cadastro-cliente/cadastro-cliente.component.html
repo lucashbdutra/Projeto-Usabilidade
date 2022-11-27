@@ -1,34 +1,38 @@
 <h1>{{idCliente? 'Editar' : "Cadastrar"}} Cliente</h1>
-<form id="form-clientes" class="row g-3 needs-validation" [formGroup]="cliente" (ngSubmit)="cadastrar()">
-  <div class="col-md-4">
-      <label for="validationCustom01" class="form-label">NOME</label>
-      <input type="text" class="form-control" formControlName="nome" placeholder="Nome do Cliente">
-  </div>
+<div class="container">
+  <form id="form-clientes" class="row g-3 needs-validation" [formGroup]="cliente" (ngSubmit)="cadastrar()">
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">NOME</label>
+        <input type="text" class="form-control" formControlName="nome" placeholder="Nome do Cliente">
+    </div>
 
-  <div class="col-md-4" *ngIf="!idCliente">
-      <label for="validationCustom02" class="form-label">CPF</label>
-      <input type="text" class="form-control" placeholder="000.000.000-00" formControlName="cpf">
-  </div>
+    <div class="col-md-4" *ngIf="!idCliente">
+        <label for="validationCustom02" class="form-label">CPF</label>
+        <input type="text" class="form-control" placeholder="000.000.000-00" formControlName="cpf">
+    </div>
 
-  <div class="col-md-4">
-      <label for="validationCustom02" class="form-label">CONTATO</label>
-      <input type="text" class="form-control" placeholder="() 00000-0000" formControlName="contato">
-  </div>
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">CONTATO</label>
+        <input type="text" class="form-control" placeholder="() 00000-0000" formControlName="contato">
+    </div>
 
-  <div class="col-md-4">
-      <label for="validationCustomUsername" class="form-label">EMAIL</label>
-      <input type="email" class="form-control" formControlName="email" placeholder="exemplo@gmail.com">
-  </div>
+    <div class="col-md-4">
+        <label for="validationCustomUsername" class="form-label">EMAIL</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="exemplo@gmail.com">
+    </div>
 
-  <div class="col-md-4">
-      <label for="validationCustom02" class="form-label">ENDEREÇO</label>
-      <input type="text" class="form-control" formControlName="endereco" placeholder="Endereço">
-  </div>
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">ENDEREÇO</label>
+        <input type="text" class="form-control" formControlName="endereco" placeholder="Endereço">
+    </div>
 
-  <div class="col-12" [align]="'center'">
-      <a>
-          <button id="botao-cadastrar-cliente" class="btn btn-success" type="submit" [disabled]="!cliente.valid">
-            {{idCliente? 'Editar' : "Cadastrar"}}</button>
-      </a>
-  </div>
-</form>
+    <div class="col-12" [align]="'center'">
+
+      <button class="btn btn-danger botao" type="button" routerLink="/clientes">Voltar</button>
+      <button class="btn btn-success" type="submit" [disabled]="!cliente.valid">
+        {{idCliente? 'Editar' : "Cadastrar"}}</button>
+
+    </div>
+  </form>
+</div>
+

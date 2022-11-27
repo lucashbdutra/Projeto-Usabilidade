@@ -13,11 +13,17 @@ import { ToastrService } from 'ngx-toastr';
 export class CadastroProdutoComponent implements OnInit {
 
   idProduto = 0;
+  isService = false;
 
   produto = this.formBuilder.group({
     nome:['', Validators.required],
     quantidade:[0, Validators.required],
     valorCusto:[0, Validators.required],
+    valorFinal:[0, Validators.required]
+  })
+
+  servico = this.formBuilder.group({
+    nome:['', Validators.required],
     valorFinal:[0, Validators.required]
   })
 
@@ -43,8 +49,16 @@ export class CadastroProdutoComponent implements OnInit {
     }
   }
 
+  handleCheck(isService: string){
+    if(isService === 'true'){
+      this.isService = true;
+    } else {
+      this.isService = false;
+    }
+  }
+
   cadastrar(){
-    const produto = this.produto.value as Produto;
+    let produto = this.produto.value as Produto;
     const id = this.idProduto;
 
     if(id != 0){
@@ -60,11 +74,29 @@ export class CadastroProdutoComponent implements OnInit {
         });
       });
     }
+
+    if(this.isService){
+
+      produto = this.servico.value as Produto;
+      produto.isService = true;
+      produto.quantidade = 0;
+      produto.valorCusto = 0;
+
+    } else{
+
+      produto.isService = false;
+    }
+
     this.produtoService.salvar(produto).subscribe(() => {
       this.toaster.success('Cadastro realizado com sucesso!', '', {
         timeOut: 3000,
       });
-      this.router.navigate(['/produtos']);
+      if(produto.isService){
+        this.router.navigate(['/servicos']);
+      } else{
+        this.router.navigate(['/produtos']);
+      }
+
     }, (erro) => {
       this.toaster.error('Houve um problema com sua solicitação!', '', {
         timeOut: 2000,

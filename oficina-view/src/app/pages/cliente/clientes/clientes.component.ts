@@ -14,7 +14,9 @@ import { ClientesService } from 'src/app/services/clientes.service';
 })
 export class ClientesComponent implements OnInit {
 
-  clientes?: Cliente[];
+  p: number = 1;
+  clientes: Cliente[] = [];
+  backup: Cliente[] = [];
 
   constructor(
     private clienteService: ClientesService,
@@ -31,6 +33,7 @@ export class ClientesComponent implements OnInit {
   listar(){
     this.clienteService.listar().subscribe((clientes: Cliente[])=>{
       this.clientes = clientes;
+      this.backup = clientes;
     })
   }
 
@@ -47,5 +50,13 @@ export class ClientesComponent implements OnInit {
       class: 'my-modal',
     });
 
+  }
+
+  search(event: Event){
+    const target = event.target as HTMLInputElement
+    const value = target.value
+    this.clientes = this.backup.filter((cliente) => {
+      return cliente.nome.toLowerCase().includes(value);
+    })
   }
 }

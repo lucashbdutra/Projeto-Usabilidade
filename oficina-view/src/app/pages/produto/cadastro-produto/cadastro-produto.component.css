@@ -6,7 +6,6 @@
   margin-bottom: 80px;
   margin-left: 30px;
   margin-right: 30px;
-  background-color: rgb(0, 80, 24);
 
 }
 
@@ -15,14 +14,26 @@
 
 }
 
-#botao-cadastrar-cliente {
-  width: 120px;
-  margin-top: 20px;
-  background-color: rgb(0, 80, 24);
+.botao{
+  margin-right: 1%;
 }
 
 
 h1{
   text-align: center;
+  margin: 2%;
 }
 
+.align{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.align-within{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}

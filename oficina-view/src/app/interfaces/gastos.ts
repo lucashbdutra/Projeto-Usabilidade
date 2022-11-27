@@ -5,6 +5,7 @@ export interface Gastos {
   agua: number,
   energia: number,
   internet: number,
-  mes: string,
-  lucro: number
+  data: string,
+  lucro: number,
+  vendas: number
 }

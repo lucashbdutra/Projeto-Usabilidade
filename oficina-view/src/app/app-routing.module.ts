@@ -1,3 +1,4 @@
+import { EstoqueComponent } from './pages/produto/estoque/estoque.component';
 import { RelatorioComponent } from './pages/financas/relatorio/relatorio.component';
 import { CadastroProdutoComponent } from './pages/produto/cadastro-produto/cadastro-produto.component';
 import { ProdutosComponent } from './pages/produto/produtos/produtos.component';
@@ -14,6 +15,7 @@ import { CadastroComponent } from './pages/login/cadastro/cadastro.component';
 import { VendasComponent } from './pages/venda/vendas/vendas.component';
 import { SelectClientComponent } from './pages/venda/select-client/select-client.component';
 import { GastosMensaisComponent } from './pages/financas/gastos-mensais/gastos-mensais.component';
+import { ServicosComponent } from './pages/produto/servicos/servicos.component';
 
 const routes: Routes = [
   {
@@ -76,6 +78,12 @@ const routes: Routes = [
 
   {
     path: 'produtos', canActivate:[GuardService], component: ProdutosComponent
+  },
+  {
+    path: 'servicos', canActivate:[GuardService], component: ServicosComponent
+  },
+  {
+    path: 'estoque', canActivate:[GuardService], component: EstoqueComponent
   },
   {
     path: 'produtos/cadastro', canActivate:[GuardService], component: CadastroProdutoComponent

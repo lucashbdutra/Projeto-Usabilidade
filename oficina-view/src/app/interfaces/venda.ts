@@ -6,5 +6,5 @@ export interface Venda {
   valor: number,
   cliente: Cliente,
   produtos: Produto[],
-  mes: string
+  mesAno: string
 }

@@ -9,7 +9,7 @@ import { Cliente } from 'src/app/interfaces/cliente';
 })
 export class SelectClientComponent implements OnInit {
 
-  clientes?: Cliente[];
+  clientes: Cliente[] = [];
   cliente?: Cliente;
 
   constructor(

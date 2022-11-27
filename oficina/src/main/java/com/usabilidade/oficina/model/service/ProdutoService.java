@@ -21,8 +21,10 @@ public class ProdutoService extends GenericCrudService<Produto, Long, ProdutosRe
     public Produto cadastrar(@Valid Produto produto){
 
         Date date = new Date();
-        Format format = new SimpleDateFormat("MM");
-        produto.setMes(format.format(date));
+        Format format = new SimpleDateFormat("MM/yyyy");
+
+        produto.setData(format.format(date));
+
 
         produtosRepository.save(produto);
 

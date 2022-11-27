@@ -21,7 +21,7 @@
 
     <div class="col-md-4">
       <label for="validationCustom02" class="form-label">Mês de Referência</label>
-      <input type="text" class="form-control" formControlName="mes" placeholder="Digite o de referência para o fechamento">
+      <input type="text" class="form-control" formControlName="data" placeholder="Digite mês e ano de referencia">
   </div>
 
     <div class="col" [align]="'center'">
@@ -45,44 +45,49 @@
     <li class="list-group-item">{{fechamento.lucro}}</li>
   </ul> -->
 
-    <table class="table table-striped table-active">
+    <table class="table table-striped table-dark">
       <thead>
 
       </thead>
       <tbody>
         <tr>
           <th scope="row">Custo da Água</th>
-          <td>{{fechamento.agua}}</td>
+          <td>R$ {{fechamento.agua}}</td>
         </tr>
 
         <tr>
           <th scope="row">Custo da Energia</th>
-          <td>{{fechamento.energia}}</td>
+          <td>R$ {{fechamento.energia}}</td>
         </tr>
 
         <tr>
           <th scope="row">Custo da Internet</th>
-          <td>{{fechamento.internet}}</td>
+          <td>R$ {{fechamento.internet}}</td>
         </tr>
 
         <tr>
           <th scope="row">Custo dos Produtos</th>
-          <td>{{fechamento.custoProdutos}}</td>
+          <td>R$ {{fechamento.custoProdutos}}</td>
         </tr>
 
         <tr>
           <th scope="row">Salário do Funcionários</th>
-          <td>{{fechamento.funcionarios}}</td>
+          <td>R$ {{fechamento.funcionarios}}</td>
         </tr>
 
-        <tr class="bg-success" *ngIf="lucro()">
-          <th scope="row">Lucro</th>
-          <td>{{fechamento.lucro}}</td>
+        <tr>
+          <th scope="row">Valor das Vendas</th>
+          <td>R$ {{fechamento.vendas}}</td>
         </tr>
 
-        <tr class="bg-danger" *ngIf="!lucro()">
+        <tr class="table-success" *ngIf="lucro()">
           <th scope="row">Lucro</th>
-          <td>{{fechamento.lucro}}</td>
+          <td>R$ {{fechamento.lucro}}</td>
+        </tr>
+
+        <tr class="table-danger" *ngIf="!lucro()">
+          <th scope="row">Lucro</th>
+          <td>R$ {{fechamento.lucro}}</td>
         </tr>
 
       </tbody>

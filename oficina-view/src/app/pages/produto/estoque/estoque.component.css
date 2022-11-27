@@ -12,7 +12,6 @@
   margin-bottom: 2%;
 }
 
-
 #tabela-clientes tbody{
 
   text-align: center;
@@ -20,6 +19,7 @@
 }
 
 #tabela-clientes thead tr {
+
   text-align: center;
 
 }
@@ -28,11 +28,6 @@
   padding-left: 20px;
 }
 
-
-.col-md-4 {
-  margin-bottom: 10px;
-
-}
 
 .add-button{
 
@@ -51,3 +46,4 @@ h2{
   text-align: center;
   margin: 2%;
 }
+

@@ -8,5 +8,5 @@ import java.util.List;
 @Repository
 public interface ProdutosRepository extends GenericCrudRepository<Produto, Long> {
 
-    public List<Produto> findByMes(String mes);
+    public List<Produto> findByData(String data);
 }

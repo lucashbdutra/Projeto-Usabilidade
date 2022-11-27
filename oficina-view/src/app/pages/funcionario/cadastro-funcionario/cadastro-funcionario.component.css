@@ -9,18 +9,31 @@
 
 }
 
-.col-md-4 {
-  margin-bottom: 10px;
+.space{
+  margin-bottom: 10%;
 
 }
 
-#botao-cadastrar-cliente {
-  width: 120px;
-  margin-top: 20px;
-  background-color: rgb(0, 80, 24);
+.botao{
+  margin-right: 1%;
 }
 
+.margin{
+  margin-left: 2%;
+}
 
 h1{
   text-align: center;
+  margin: 5%;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input{
+  width: 400px;
 }

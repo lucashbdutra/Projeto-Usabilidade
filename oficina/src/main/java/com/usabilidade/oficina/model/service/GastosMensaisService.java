@@ -39,8 +39,8 @@ public class GastosMensaisService extends GenericCrudService<GastosMensais, Long
         Class<GastosMensais> gastosMensais = GastosMensais.class;
 
         List<Funcionario> funcionarios = funcionariosRepository.findAll();
-        List<Venda> vendas = vendasRepository.findByMes(gastos.getMes());
-        List<Produto> produtos = produtosRepository.findByMes(gastos.getMes());
+        List<Venda> vendas = vendasRepository.findByMesAno(gastos.getData());
+        List<Produto> produtos = produtosRepository.findByData(gastos.getData());
 
         for(Venda venda: vendas){
             somaVendas = somaVendas.add(venda.getValor());
@@ -60,6 +60,7 @@ public class GastosMensaisService extends GenericCrudService<GastosMensais, Long
         total = total.add(gastos.getEnergia());
         total = total.add(gastos.getInternet());
 
+        gastos.setVendas(somaVendas);
         gastos.setCustoProdutos(somaCustoProdutos);
         gastos.setLucro(somaVendas.subtract(total));
         gastos.setFuncionarios(somaSalario);
@@ -72,9 +73,9 @@ public class GastosMensaisService extends GenericCrudService<GastosMensais, Long
     public GastosMensais salvarGastos(GastosMensais gastos){
 
         Date date = new Date();
-        Format format = new SimpleDateFormat("MM");
+        Format format = new SimpleDateFormat("MM/yyyy");
 
-        gastos.setMes(format.format(date));
+        gastos.setData(format.format(date));
         gastos.setFechamento(date);
 
         gastosRepository.save(gastos);

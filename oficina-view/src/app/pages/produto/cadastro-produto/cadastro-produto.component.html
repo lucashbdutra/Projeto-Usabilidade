@@ -1,33 +1,80 @@
-<h1>{{idProduto? 'Editar' : "Cadastrar"}} Cliente</h1>
-<form id="form-clientes" class="row g-3 needs-validation" [formGroup]="produto" (ngSubmit)="cadastrar()">
-  <div class="col-md-4">
-      <label for="validationCustom01" class="form-label">NOME</label>
-      <input type="text" class="form-control" formControlName="nome" placeholder="Nome do Produto">
+<h1>{{idProduto? 'Editar' : "Cadastrar"}} Produto</h1>
+
+<div class="align">
+  <div class="align-within">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault"
+      id="flexRadioDefault1" (change)="handleCheck('false')" checked>
+      <label class="form-check-label" for="flexRadioDefault1">
+        Produto
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault"
+      id="flexRadioDefault2" (change)="handleCheck('true')">
+      <label class="form-check-label" for="flexRadioDefault2">
+        Serviço
+      </label>
+    </div>
   </div>
-
-  <div class="col-md-4" *ngIf="!idProduto">
-      <label for="validationCustom02" class="form-label">Quantidade</label>
-      <input type="text" class="form-control" placeholder="Quantidade" formControlName="quantidade">
-  </div>
-
-  <div class="col-md-4">
-      <label for="validationCustom02" class="form-label">Valor de Custo</label>
-      <input type="text" class="form-control" placeholder="Valor de Custo" formControlName="valorCusto">
-  </div>
-
-  <div class="col-md-4">
-      <label for="validationCustom02" class="form-label">Valor Final</label>
-      <input type="text" class="form-control" formControlName="valorFinal" placeholder="Valor Final">
-  </div>
-
-  <div class="col" [align]="'center'">
-      <a>
-          <button id="botao-cadastrar-cliente" class="btn btn-success" type="submit" [disabled]="!produto.valid">
-            {{idProduto? 'Editar' : "Cadastrar"}}</button>
-      </a>
-  </div>
-</form>
+</div>
 
 
+<div *ngIf="!isService">
 
+  <form id="form-clientes" class="row g-3 needs-validation" [formGroup]="produto" (ngSubmit)="cadastrar()">
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">NOME</label>
+        <input type="text" class="form-control" formControlName="nome" placeholder="Nome do Produto">
+    </div>
+
+    <div class="col-md-4" *ngIf="!idProduto">
+        <label for="validationCustom02" class="form-label">Quantidade</label>
+        <input type="text" class="form-control" placeholder="Quantidade" formControlName="quantidade">
+    </div>
+
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Valor de Custo</label>
+        <input type="text" class="form-control" placeholder="Valor de Custo" formControlName="valorCusto">
+    </div>
+
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Valor Final</label>
+        <input type="text" class="form-control" formControlName="valorFinal" placeholder="Valor Final">
+    </div>
+
+    <div class="col" [align]="'center'">
+
+      <button class="btn btn-danger botao" type="button" routerLink="/produtos">Voltar</button>
+      <button class="btn btn-success botao" type="submit" [disabled]="!produto.valid">
+        {{idProduto? 'Editar' : "Cadastrar"}}</button>
+
+    </div>
+  </form>
+
+</div>
+
+<div *ngIf="isService">
+
+  <form id="form-clientes" class="row g-3 needs-validation" [formGroup]="servico" (ngSubmit)="cadastrar()">
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">NOME</label>
+        <input type="text" class="form-control" formControlName="nome" placeholder="Nome do Produto">
+    </div>
+
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Valor Final</label>
+        <input type="text" class="form-control" formControlName="valorFinal" placeholder="Valor Final">
+    </div>
+
+    <div class="col" [align]="'center'">
+
+      <button class="btn btn-danger botao" type="button" routerLink="/produtos">Voltar</button>
+      <button class="btn btn-success botao" type="submit" [disabled]="!servico.valid">
+        {{idProduto? 'Editar' : "Cadastrar"}}</button>
+
+    </div>
+  </form>
+
+</div>
 

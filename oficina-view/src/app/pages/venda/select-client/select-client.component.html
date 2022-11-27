@@ -3,7 +3,7 @@
 <h2>Selecione o cliente desejado: </h2>
 <div class="mb-3 clients-list">
   <table
-    class="table table-striped table-sm"
+    class="table table-striped table-dark"
   >
     <thead>
       <tr>
@@ -31,7 +31,7 @@
         <td> {{ cliente.contato }} </td>
       </tr>
     </tbody>
-  <button type="button" class="btn btn-info" routerLink="/venda/finalizar/{{cliente?.id}}">Finalizar Venda</button>
+  <button type="button" class="btn btn-info" routerLink="/venda/finalizar/{{cliente?.id}}" *ngIf="clientes.length > 0">Finalizar Venda</button>
   </table>
 </div>
 

@@ -28,7 +28,6 @@
                 <td>
                   <div class="input-div">
                     <input
-                      [disabled]="produto.quantidade === 0"
                       class="form-check-input"
                       type="radio"
                       name="produto"
@@ -38,7 +37,7 @@
                 </td>
                 <td>{{ produto.nome }}</td>
                 <td>{{ produto.quantidade }}</td>
-                <td> R$ {{ produto.valorFinal }},00</td>
+                <td> R$ {{ produto.valorFinal }}</td>
                 <td>
                   <input type="number" class="form-control" formControlName="quantidade" placeholder="Quantidade">
                 </td>

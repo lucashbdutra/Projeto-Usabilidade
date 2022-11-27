@@ -1,36 +1,41 @@
 <div class="corpo">
+
+  <h2>Relatórios</h2>
+
   <div>
     <form class="d-flex" role="search">
-        <input id="input-buscar-clientes" class="form-control me-2" type="search" placeholder="Digite o nome do cliente"
-            aria-label="Search">
-        <button id="botao-buscar-clientes" class="btn btn-outline-success" type="submit">Pesquisar</button>
+      <input id="input-buscar-clientes" class="form-control me-2" type="search" placeholder="Digite a data do fechamento"
+      aria-label="Search" (input)="search($event)">
     </form>
-    <button class="btn btn-danger" routerLink="/financas">Voltar</button>
   </div>
 
+  <button class="btn btn-danger" routerLink="/financas">Voltar</button>
+
   <div id="tabela-clientes">
-    <table class="table table-striped table-active">
-        <thead>
+    <table class="table table-dark table-striped">
+        <thead class="table-secondary">
             <tr>
                 <th scope="col">Agua</th>
                 <th scope="col">Energia</th>
                 <th scope="col">Internet</th>
                 <th scope="col">Funcionários</th>
                 <th scope="col">Produtos</th>
+                <th scope="col">Vendas</th>
                 <th scope="col">Mês</th>
                 <th scope="col">Lucro</th>
             </tr>
         </thead>
         <tbody class="fields">
             <tr *ngFor="let gasto of gastos">
-                <td>{{gasto.agua}}</td>
-                <td>{{gasto.energia}}</td>
-                <td>{{gasto.internet}}</td>
-                <td>{{gasto.funcionarios}}</td>
-                <td>{{gasto.custoProdutos}}</td>
-                <td>{{gasto.mes}}</td>
-                <td class="bg-success" *ngIf="lucro(gasto.lucro)">{{gasto.lucro}}</td>
-                <td class="bg-danger" *ngIf="!lucro(gasto.lucro)">{{gasto.lucro}}</td>
+                <td>R$ {{gasto.agua}}</td>
+                <td>R$ {{gasto.energia}}</td>
+                <td>R$ {{gasto.internet}}</td>
+                <td>R$ {{gasto.funcionarios}}</td>
+                <td>R$ {{gasto.custoProdutos}}</td>
+                <td>R$ {{gasto.vendas}}</td>
+                <td>{{gasto.data}}</td>
+                <td class="table-success" *ngIf="lucro(gasto.lucro)">{{gasto.lucro}}</td>
+                <td class="table-danger" *ngIf="!lucro(gasto.lucro)">{{gasto.lucro}}</td>
             </tr>
         </tbody>
     </table>

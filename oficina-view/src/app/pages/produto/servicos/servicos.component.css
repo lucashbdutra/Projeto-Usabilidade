@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2%;
+  margin-top: 2%;
 
 }
 
@@ -12,7 +12,6 @@
   margin-bottom: 2%;
 }
 
-
 #tabela-clientes tbody{
 
   text-align: center;
@@ -20,6 +19,7 @@
 }
 
 #tabela-clientes thead tr {
+
   text-align: center;
 
 }
@@ -27,7 +27,6 @@
 #tabela-clientes .id-cliente {
   padding-left: 20px;
 }
-
 
 .col-md-4 {
   margin-bottom: 10px;

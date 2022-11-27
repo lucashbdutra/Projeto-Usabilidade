@@ -23,8 +23,9 @@ public class GastosMensais extends GenericEntity<Long>{
     private BigDecimal agua;
     private BigDecimal internet;
     private BigDecimal custoProdutos;
+    private BigDecimal vendas;
     private BigDecimal lucro;
-    private String mes;
+    private String data;
     private Date fechamento;
 
 

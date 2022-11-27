@@ -1,15 +1,15 @@
-import { ProdutosService } from './../../../services/produtos.service';
-import { Produto } from './../../../interfaces/produto';
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ConfirmModalComponent } from 'src/app/components/confirm-modal/confirm-modal.component';
+import { Produto } from 'src/app/interfaces/produto';
+import { ProdutosService } from 'src/app/services/produtos.service';
 
 @Component({
-  selector: 'app-produtos',
-  templateUrl: './produtos.component.html',
-  styleUrls: ['./produtos.component.css']
+  selector: 'app-estoque',
+  templateUrl: './estoque.component.html',
+  styleUrls: ['./estoque.component.css']
 })
-export class ProdutosComponent implements OnInit {
+export class EstoqueComponent implements OnInit {
 
   produtos: Produto[] = [];
   backup: Produto[] = [];
@@ -27,12 +27,8 @@ export class ProdutosComponent implements OnInit {
 
   listar(){
     this.produtoService.listar().subscribe((produtos: Produto[])=>{
-      this.backup = produtos.filter((produto) => {
-        return !produto.isService
-      });
-      this.produtos = produtos.filter((produto) => {
-        return !produto.isService
-      });
+      this.backup = produtos;
+      this.produtos = produtos;
     })
 
   }

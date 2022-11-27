@@ -48,7 +48,7 @@ export class VendasComponent implements OnInit {
 
   condition(): boolean{
     if(Number(this.venda.value.quantidade) <= Number(this.produto?.quantidade)
-    && Number(this.venda.value.quantidade) > 0){
+    && Number(this.venda.value.quantidade) > 0 || Boolean(this.produto?.isService) === true){
       return false;
     }
     return true;
@@ -87,7 +87,11 @@ export class VendasComponent implements OnInit {
   calculo(){
     let valor = 0;
     for(let produto of this.produtosList){
-      valor += produto.valorFinal * produto.quantidade;
+      if(produto.isService){
+        valor += produto.valorFinal;
+      } else{
+        valor += produto.valorFinal * produto.quantidade;
+      }
     }
     this.subtotal = valor;
   }

@@ -28,7 +28,7 @@ export class GastosMensaisComponent implements OnInit {
     agua: [0, Validators.required],
     energia: [0, Validators.required],
     internet: [0, Validators.required],
-    mes: [0, Validators.required],
+    data: ['', Validators.required],
   })
 
   fechamento?: Gastos;
