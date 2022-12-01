@@ -21,13 +21,26 @@ export class VendasComponent implements OnInit {
     quantidade: [0, Validators.required]
   })
 
-  produtos?: Produto[];
+  pagamento = this.formBuilder.group({
+    metodo: ['', Validators.required],
+    valorPago: [0, Validators.required],
+    desconto: [0, Validators.required]
+  })
+
+  produtos: Produto[] = [];
+  backup: Produto[] = [];
   idCliente = 0;
 
   produto?: Produto;
   cliente?: Cliente;
   vendas?: Venda;
+
+  metodo: string = '';
+  desconto: number = 0;
   subtotal: number = 0;
+  valorPago: number = 0;
+  troco: number = 0;
+  total: number = 0;
 
   produtosList: Produto[] = [];
 
@@ -63,6 +76,7 @@ export class VendasComponent implements OnInit {
   buscarProdutos(){
     this.produtosService.listar().subscribe((produtos: Produto[]) => {
       this.produtos = produtos;
+      this.backup = produtos;
     })
   }
 
@@ -80,11 +94,25 @@ export class VendasComponent implements OnInit {
     if(!this.produtosList.includes(produto)){
       this.produtosList.push(produtoNew);
       this.venda.reset();
+      if(produtoNew.isService){
+        this.subtotal += produtoNew.valorFinal;
+      } else{
+        this.subtotal += produtoNew.valorFinal * produtoNew.quantidade;
+      }
+
     }
 
   }
 
+
   calculo(){
+
+    const pagamento = this.pagamento.value
+    this.metodo = String(pagamento.metodo);
+    const desconto = Number(pagamento.desconto)
+    const valorPago = Number(pagamento.valorPago)
+    this.valorPago = valorPago;
+
     let valor = 0;
     for(let produto of this.produtosList){
       if(produto.isService){
@@ -94,6 +122,19 @@ export class VendasComponent implements OnInit {
       }
     }
     this.subtotal = valor;
+
+    this.desconto = (valor * desconto) / 100;
+
+
+
+    if(this.metodo === 'dinheiro'){
+      this.total = valor - this.desconto;
+      this.troco = (this.total - this.valorPago) * -1;
+    } else{
+      this.total = 0;
+    }
+
+    console.log(this.pagamento.value)
   }
 
   onSubmit(){
@@ -114,6 +155,14 @@ export class VendasComponent implements OnInit {
       });
     });
 
+  }
+
+  search(event: Event){
+    const target = event.target as HTMLInputElement
+    const value = target.value
+    this.produtos = this.backup.filter((produto) => {
+      return produto.nome.toLowerCase().includes(value);
+    })
   }
 
 }

@@ -4,14 +4,22 @@
       <h2 class="pb-2 border-bottom">Vendas</h2>
     </div>
   </div>
+
+  <div>
+    <form class="d-flex" role="search">
+      <input id="input-buscar-clientes" class="form-control me-2" type="search" placeholder="Digite o nome do produto"
+      aria-label="Search" (input)="search($event)">
+    </form>
+  </div>
+
   <form [formGroup]="venda">
     <div class="row g-2">
       <div class="col">
-        <label class="form-label">Produtos</label>
-        <div class="mb-3 clients-list">
+        <h4>Produtos</h4>
+        <div class="mb-3 product-list">
           <table
-            *ngIf="produtos?.length"
-            class="table table-striped table-sm"
+            *ngIf="produtos.length"
+            class="table table-striped table-dark table-sm"
           >
             <thead>
               <tr>
@@ -36,10 +44,14 @@
                   </div>
                 </td>
                 <td>{{ produto.nome }}</td>
-                <td>{{ produto.quantidade }}</td>
+
+                <td *ngIf="!produto.isService"> {{ produto.quantidade }} </td>
+                <td *ngIf="produto.isService"> Serviço </td>
+
                 <td> R$ {{ produto.valorFinal }}</td>
-                <td>
-                  <input type="number" class="form-control" formControlName="quantidade" placeholder="Quantidade">
+                <td >
+                  <input type="number" class="form-control" formControlName="quantidade"
+                  placeholder="Quantidade" *ngIf="!produto.isService">
                 </td>
               </tr>
             </tbody>
@@ -48,19 +60,51 @@
         </div>
       </div>
     </div>
-
-
-      <h3 *ngIf="!(produtosList.length === 0)">Produtos Adcionados</h3>
-      <div *ngFor="let a of produtosList">Nome: {{a.nome}} <br>Quantidade: {{a.quantidade}} <br>Valor: {{a.valorFinal}}</div>
-      <p></p>
-      <h3 *ngIf="cliente">Cliente</h3>
-      <div>{{cliente?.nome}}</div>
-      <p></p>
-      <button (click)="calculo()">Testao</button>
-      <p></p>
-      <h3 *ngIf="subtotal">Subtotal</h3>
-      <div>{{subtotal}}</div>
   </form>
-  <button (click)="onSubmit()">Concluir Venda</button>
+
+  <label id="total" class="label-total">SUBTOTAL: </label>
+  <label id="total" class="space"> R$ {{subtotal}}</label><br>
+
+  <form [formGroup]="pagamento">
+    <div id="pagamento">
+      <label for="">FORMA DE PAGAMENTO:</label>
+      <select formControlName="metodo">
+        <option value="dinheiro">DINHEIRO</option>
+        <option value="pix">PIX</option>
+        <option value="debito">CARTÃO DE DEBITO</option>
+        <option value="credito">CARTÃO DE CREDITO</option>
+      </select>
+    </div>
+
+    <div id="desconto">
+      <label for="">PAGAMENTO:</label>
+      <input type="number" placeholder="R$ 0,00" formControlName="valorPago"><br>
+      <label for="desc">DESCONTO(%):</label>
+      <input type="number" id="desc" name="desconto" placeholder="R$ 0,00" formControlName="desconto"><br>
+      <button type="button" class="btn btn-light" (click)="calculo()">Confirmar</button>
+    </div><br>
+
+    <div id="total">
+
+      <label class="label-total">DESCONTO: </label>
+      <label class="space"> R$ {{desconto}}</label><br>
+
+      <label class="label-total">TOTAL A PAGAR: </label>
+      <label class="space"> R$ {{total}}</label>
+
+      <div *ngIf="metodo === 'dinheiro'">
+        <label class="label-total"> PAGAMENTO: </label>
+        <label class="space"> R$ {{valorPago}}</label><br>
+
+        <label class="label-total"> TROCO: </label>
+        <label class="space"> R$ {{troco}}</label><br>
+      </div>
+
+    </div><br>
+
+    <div id="finalizar-venda">
+      <button type="submit" class="btn btn-light" (click)="onSubmit()" [disabled]="troco < 0">Finalizar Venda</button>
+    </div>
+  </form>
 
 </div>
